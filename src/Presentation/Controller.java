@@ -13,15 +13,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Controller {
+
+    @FXML
     public Button loginButton;
     public Button cancelButton;
     public Label messageLabel;
     public Button noButton;
 
+
+    @FXML
     public void clickLogin(ActionEvent actionEvent) throws IOException {
         handleButtonAction(actionEvent);
     }
 
+    @FXML
     public void clickCancel(ActionEvent actionEvent) throws IOException {
         handleButtonAction(actionEvent);
     }
@@ -36,7 +41,7 @@ public class Controller {
             //get reference to the button's stage
             stage=(Stage) loginButton.getScene().getWindow();
             //load up OTHER FXML document
-            root = FXMLLoader.load(getClass().getResource("Presentation/pageAfterLogin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("pageAfterLogin.fxml"));
         }
         else if(event.getSource()==cancelButton){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -57,6 +62,7 @@ public class Controller {
         }
     }
 
+    @FXML
     public void noButton(ActionEvent actionEvent) throws IOException {
         handleButtonAction(actionEvent);
     }
