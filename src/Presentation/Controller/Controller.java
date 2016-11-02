@@ -1,4 +1,4 @@
-package Presentation;
+package Presentation.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,7 +41,7 @@ public class Controller {
             //get reference to the button's stage
             stage=(Stage) loginButton.getScene().getWindow();
             //load up OTHER FXML document
-            root = FXMLLoader.load(getClass().getResource("pageAfterLogin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("GUI/pageAfterLogin.fxml"));
         }
         else if(event.getSource()==cancelButton){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
