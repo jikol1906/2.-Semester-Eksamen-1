@@ -1,4 +1,4 @@
-package Presentation;
+package Presentation.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -41,14 +43,16 @@ public class Controller {
             //get reference to the button's stage
             stage=(Stage) loginButton.getScene().getWindow();
             //load up OTHER FXML document
-            root = FXMLLoader.load(getClass().getResource("pageAfterLogin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/Presentation/Gui/pageAfterLogin.fxml"));
         }
         else if(event.getSource()==cancelButton){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("ALERT");
-            alert.setHeaderText("Sup");
-            alert.setContentText("You cant leave!");
-            alert.showAndWait();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Presentation/Gui/AlertBox.fxml"));
+            root = fxmlLoader.load();
+            stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(new Scene(root));
+            stage.show();
             check = false;
         }
         else if(event.getSource()==noButton){
